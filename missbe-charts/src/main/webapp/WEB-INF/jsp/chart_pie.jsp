@@ -13,9 +13,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Missbe-data</title>
+  <title>饼状图</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="shortcut icon" href="favicon.ico"> 
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="${basePath}/static/adminLte/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -179,21 +180,12 @@
       </ol>	  
     </section>			
 	<!-- Main content -->
-    <section class="content">
-      <div class="callout callout-info">
-        <h4>OS相关信息</h4>
-        <p>操作系统的名称 </p>              
-      </div>
+    <section class="content">     
       <!-- Default box -->
-       <div class="box-body">
-          condensed
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-             footer
-        </div>
-        <!-- /.box-footer-->
-      </div>
+      <iframe id="mainiframe"  width="100%" height="720px"
+         frameborder="0" scrolling="no" marginwidth="0" marginheight="0"         
+         src="${basePath }ReportServer?reportlet=chart-pie.cpt">
+      </iframe>	  
       <!-- /.box -->
     </section>
     <!-- /.content -->

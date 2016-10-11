@@ -13,9 +13,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Missbe-data</title>
+  <title>柱状图</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="shortcut icon" href="favicon.ico"> 
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="${basePath}/static/adminLte/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -180,27 +181,13 @@
     </section>			
 	<!-- Main content -->
     <section class="content">      
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Java版本相关信息</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fa fa-minus"></i></button>            
-          </div>
-        </div>
-        <div class="box-body">
-          condensed
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-             footer
-        </div>
-        <!-- /.box-footer-->
-      </div>
+      <!-- Default box -->     
       <!-- /.box -->
-    </section>
+      <iframe id="mainiframe"  width="100%" height="720px"
+         frameborder="0" scrolling="no" marginwidth="0" marginheight="0"         
+         src="${basePath }ReportServer?reportlet=chart-column.cpt">
+      </iframe>	  
+	  </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -234,5 +221,6 @@
 <script src="${basePath}/static/adminLte/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="${basePath}/static/adminLte/dist/js/demo.js"></script>
+
 </body>
 </html>

@@ -18,8 +18,9 @@
     <head>
         <meta charset="UTF-8" />
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
-        <title>Missbe Login</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Missbe-Login</title>
+        <meta content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1, user-scalable=no" name="viewport">
+ 
         <meta name="description" content="missbe login" />
         <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
         <meta name="author" content="missbe" />
@@ -28,9 +29,9 @@
         <link rel="stylesheet" type="text/css" href="${basePath }static/login/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="${basePath }static/login/css/animate-custom.css" />
     </head>
-    <body style="background:url(${basePath }static/login/images/bg1.png);
-            height=100%;width=100%;background-repeat:none;">
-        <div class="container">           
+    <body style="background:url(${basePath }static/login/images/background.png);
+            width=auto;background-repeat:none;background-size:100% 100%;">
+        <div class="container" >           
             
             <section>				
                 <div id="container_demo" >                    
