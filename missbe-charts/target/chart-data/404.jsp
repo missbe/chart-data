@@ -7,30 +7,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 System.out.println("404"+basePath);
 %>
 <c:set var="basePath" value="<%=basePath %>" />
-<!DOCTYPE html>
-<html lang="zh-cmn-Hans">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <title>页面不存在</title>
-    <link rel="stylesheet" href="${basePath}static/weui/weui.min.css"/>
-    <link rel="stylesheet" href="${basePath}static/weui/example.css"/>
+<meta charset="utf-8">
+<title>404页面自动跳转</title>
+<style>
+*{margin:0;padding:0;outline:none;font-family:\5FAE\8F6F\96C5\9ED1,宋体;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-khtml-user-select:none;user-select:none;cursor:default;font-weight:lighter;}
+.center{margin:0 auto;}
+.whole{width:100%;height:100%;line-height:100%;position:fixed;bottom:0;left:0;z-index:-1000;overflow:hidden;}
+.whole img{width:100%;height:100%;}
+.mask{width:100%;height:100%;position:absolute;top:0;left:0;background:#000;opacity:0.6;filter:alpha(opacity=60);}
+.b{width:100%;text-align:center;height:400px;position:absolute;top:50%;margin-top:-230px}.a{width:150px;height:50px;margin-top:30px}.a a{display:block;float:left;width:150px;height:50px;background:#fff;text-align:center;line-height:50px;font-size:18px;border-radius:25px;color:#333}.a a:hover{color:#000;box-shadow:#fff 0 0 20px}
+p{color:#fff;margin-top:40px;font-size:24px;}
+#num{margin:0 5px;font-weight:bold;}
+</style>
+<script type="text/javascript">
+	var num=6;
+	function redirect(){
+		num--;
+		document.getElementById("num").innerHTML=num;
+		if(num<0){
+			document.getElementById("num").innerHTML=0;
+			location.href="http://www.lovesora.cn/";
+			}
+		}
+	setInterval("redirect()", 1000);
+</script>
 </head>
-<body>
-<div class="container" id="container">
-    <div class="msg">
-    <div class="weui_msg">
-        <div class="weui_icon_area"><img style="width:30%;" src="${basePath}static/images/weixin.jpg"></img></div>
-        <div class="weui_text_area">
-            <h2 class="weui_msg_title">页面丢失啦,可以通过以下途径反馈.扫描二维码关注<br>也可搜索公众号：牧固图 或 cdmugutu</h2>
-        </div>
-        <div class="weui_opr_area">
-            <p class="weui_btn_area">
-                <a href="${basePath}" class="weui_btn weui_btn_primary">前往我们的首页</a>
-            </p>
-        </div>
-    </div>
-    </div>
+
+<body onLoad="redirect();">
+<div class="whole">
+	<img src="${basePath }static/images/back.jpg" />
+    <div class="mask"></div>
 </div>
+<div class="b">
+		<img src="${basePath }static/images/404(1).png" class="center"/>
+		<p>
+			暂时未能找到您查找的页面<br>
+			可能输入的网址错误或此页面不存在<br>
+            <span id="num"></span>秒后自动跳转到主页
+		</p>
+	</div>
+
 </body>
 </html>

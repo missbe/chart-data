@@ -30,13 +30,19 @@
         
         <action  name="home" class="cn.missbe.action.Conversion">
            <result name="success">/WEB-INF/jsp/index.jsp</result>
-           <result name="login">/WEB-INF/jsp/index.jsp</result>              
+           <result name="login">/index.jsp</result>              
         </action>
+        <action  name="message" class="cn.missbe.action.Conversion">
+            <result name="message">/WEB-INF/jsp/message.jsp</result>
+            <result name="success">/WEB-INF/jsp/message.jsp</result>
+            <result name="login">/index.jsp</result> 
+        </action>
+        
         
         <action  name="modify" class="cn.missbe.action.Conversion">
             <result name="success">/WEB-INF/jsp/userpass_modify.jsp</result>  
             <result name="input">/index.jsp</result>
-            <result name="login">/WEB-INF/jsp/userpass_modify.jsp</result>
+           <result name="login">/index.jsp</result> 
         </action>
         
         <action name="index" class="cn.missbe.action.Conversion">
@@ -48,26 +54,45 @@
         <action  name="chartPie" class="cn.missbe.action.Conversion">
             <result name="success">/WEB-INF/jsp/chart_pie.jsp</result>  
             <result name="input">/index.jsp</result> 
-             <result name="login">/WEB-INF/jsp/chart_pie.jsp</result>          
+             <result name="login">/index.jsp</result>       
         </action>
         
         <action  name="chartLine" class="cn.missbe.action.Conversion">
             <result name="success">/WEB-INF/jsp/chart_line.jsp</result>  
             <result name="input">/index.jsp</result>     
-            <result name="login">/WEB-INF/jsp/chart_line.jsp</result>              
+            <result name="login">/index.jsp</result>               
         </action>
         
         <action  name="chartColumn" class="cn.missbe.action.Conversion">
             <result name="success">/WEB-INF/jsp/chart_column.jsp</result>  
             <result name="input">/index.jsp</result>       
-            <result name="login">/WEB-INF/jsp/chart_column.jsp</result>            
+            <result name="login">/index.jsp</result>             
         </action>
                 
         <action  name="email" class="cn.missbe.action.Conversion">
             <result name="success">/WEB-INF/jsp/email_contact.jsp</result>  
             <result name="input">/index.jsp</result>    
-            <result name="login">/WEB-INF/jsp/email_contact.jsp</result>        
+            <result name="login">/index.jsp</result>        
         </action>
+        
+        <action  name="IcnkrChartPie" class="cn.missbe.action.Conversion">
+            <result name="success">/WEB-INF/jsp/icnkr_chart_pie.jsp</result>  
+            <result name="input">/index.jsp</result>     
+            <result name="login">/index.jsp</result>               
+        </action>
+        
+        <action  name="IcnkrColumn" class="cn.missbe.action.Conversion">
+            <result name="success">/WEB-INF/jsp/icnkr_chart_column.jsp</result>  
+            <result name="input">/index.jsp</result>       
+            <result name="login">/index.jsp</result>             
+        </action>     
+        
+         <action  name="IcnkrChartLine" class="cn.missbe.action.Conversion">
+            <result name="success">/WEB-INF/jsp/icnkr_chart_line.jsp</result>  
+            <result name="input">/index.jsp</result>     
+            <result name="login">/index.jsp</result>               
+        </action>           
+       
         
     </package>
     <!-- Add packages here -->

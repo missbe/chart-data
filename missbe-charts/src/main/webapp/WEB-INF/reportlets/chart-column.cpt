@@ -9,8 +9,10 @@
 <![CDATA[JDBC2]]></DatabaseName>
 </Connection>
 <Query>
-<![CDATA[select distinct author,Postnumber from HappyKorea_Activepersonnelrank 
-limit 10;]]></Query>
+<![CDATA[select distinct author,Postnumber from (
+select distinct author,Postnumber from HappyKorea_Activepersonnelrank  
+where websitename='enjoykorea'
+) site limit 10;]]></Query>
 </TableData>
 </TableDataMap>
 <Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
@@ -65,7 +67,7 @@ limit 10;]]></Query>
 </AttrAlpha>
 </GI>
 <O>
-<![CDATA[发贴量统计表]]></O>
+<![CDATA[柱状图-活跃人员统计表]]></O>
 <TextAttr>
 <Attr alignText="0">
 <FRFont name="微软雅黑" style="0" size="128" foreground="-13421773"/>

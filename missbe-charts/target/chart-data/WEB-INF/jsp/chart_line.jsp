@@ -13,9 +13,10 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Missbe-data</title>
+  <title>折线图</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="shortcut icon" href="favicon.ico"> 
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="${basePath}/static/adminLte/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -42,7 +43,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="${basePath}/WEB-INF/jsp/index.jsp" class="logo">
+    <a href="${basePath}home.action" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>M</b>e</span>
       <!-- logo for regular state and mobile devices -->
@@ -121,7 +122,7 @@
         <li class="treeview  active">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
-            <span>报表管理</span>
+            <span>Korea</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -133,17 +134,31 @@
           </ul>
         </li>
         <li class="treeview">
+			   <a href="#"> <i
+						class="fa fa-pie-chart"></i> <span>Icnkr</span> <span
+						class="pull-right-container"> <i
+							class="fa fa-angle-left pull-right"></i>
+					</span>
+				</a>
+					<ul class="treeview-menu">
+						<li><a href="${basePath}IcnkrChartPie.action"><i
+								class="fa fa-pie-chart"></i> 饼状图</a></li>
+						<li><a href="${basePath}IcnkrColumn.action"><i
+								class="fa fa-bar-chart"></i> 柱形图</a></li>
+						<li><a href="${basePath}IcnkrChartLine.action"><i
+								class="fa fa-line-chart"></i> 拆线图</a></li>
+					</ul>
+			   </li>
+         <li class="treeview">
           <a href="#">
             <i class="fa fa-laptop"></i>
-            <span>报表相关设置</span>
+            <span>报表更新</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Buttons</a></li>            
+            <li><a href="${basePath}list.action"><i class="fa fa-circle-o"></i> 重新抓取数据</a></li>                     
           </ul>
         </li>
        
@@ -170,7 +185,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        拆线箘 统计相关信息        
+             EnjoyKorea--拆线图统计相关信息        
       </h1> 
       <ol class="breadcrumb">
         <li><a href="${basePath}index">
@@ -179,26 +194,12 @@
       </ol>	  
     </section>			
 	<!-- Main content -->
-    <section class="content">      <
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Java版本相关信息</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fa fa-minus"></i></button>            
-          </div>
-        </div>
-        <div class="box-body">
-          condensed
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-             footer
-        </div>
-        <!-- /.box-footer-->
-      </div>
+    <section class="content">    
+      <!-- Default box -->  
+       <iframe id="mainiframe"  width="100%" height="720px"
+         marginwidth="0" marginheight="0" 
+         frameborder="0" scrolling="no" src="${basePath }ReportServer?reportlet=chart-line.cpt">
+      </iframe>	  
       <!-- /.box -->
     </section>
     <!-- /.content -->

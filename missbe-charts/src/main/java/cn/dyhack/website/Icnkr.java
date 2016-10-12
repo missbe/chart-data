@@ -1,4 +1,4 @@
-﻿package cn.dyhack.website;
+package cn.dyhack.website;
 
 /*
  * 一个奋斗韩国论坛类

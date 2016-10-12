@@ -13,19 +13,20 @@ import cn.missbe.service.impl.UserServiceImpl;
 public class UserAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	//用户
-	private User user;
+	private String username;
 	private String userpass;
-	
+	private String loginkeeping;
+	private String repeatUserpass;
 	/**
 	 * 负责用户登录处理，成功进入首页
 	 */
 	@Override
 	public String execute(){
-		System.out.println(user.getUsername()+":"+user.getUserpass());
+		System.out.println(username+":"+userpass);
 		UserServiceI service=new UserServiceImpl();
 		User admin=null;
 		try {
-			admin = service.getUserBean(user.getUsername(), user.getUserpass());
+			admin = service.getUserBean(username, userpass);
 		} catch (SQLException e) {			
 			e.printStackTrace();
 		}
@@ -46,6 +47,11 @@ public class UserAction extends ActionSupport {
 	 */
 	public String modifyPassword(){
 //		System.out.println("userpass:"+userpass);
+		if(!userpass.equals(repeatUserpass)){
+			setRequestAttribute("message", "^_^请确认两次密码相同哦^_^");
+			setRequestAttribute("pass",userpass);
+			return INPUT;
+		}
 		UserServiceI service=new UserServiceImpl();
 		boolean flag=false;
 		try {
@@ -55,27 +61,40 @@ public class UserAction extends ActionSupport {
 			e.printStackTrace();
 		}
 		if(flag){
-			ServletActionContext.getRequest().setAttribute("message", "密码更新完成^_^");
+			setRequestAttribute("message", "^_^密码更新完成^_^");
 			return SUCCESS;
 		}else{
-			ServletActionContext.getRequest().setAttribute("message", "会话已经过期^_^");
+			setRequestAttribute("message", "^_^程序有点儿问题，稍后再试^_^");
 		    return INPUT;	
 		}
 		 
 	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
+	private void setRequestAttribute(String msg,Object object){
+		ServletActionContext.getRequest().setAttribute(msg, object);
 	}
 	public String getUserpass() {
 		return userpass;
 	}
 	public void setUserpass(String userpass) {
 		this.userpass = userpass;
+	}
+	public String getLoginkeeping() {
+		return loginkeeping;
+	}
+	public void setLoginkeeping(String loginkeeping) {
+		this.loginkeeping = loginkeeping;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getRepeatUserpass() {
+		return repeatUserpass;
+	}
+	public void setRepeatUserpass(String repeatUserpass) {
+		this.repeatUserpass = repeatUserpass;
 	}
 
 }

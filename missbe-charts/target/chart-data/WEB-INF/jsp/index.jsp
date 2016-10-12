@@ -1,7 +1,7 @@
 <%@page import="cn.missbe.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8" import="java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -14,9 +14,11 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Missbe-data</title>
+  <title>Missbe Home</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  
+  <link rel="shortcut icon" href="favicon.ico"> 
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="${basePath}/static/adminLte/bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -43,7 +45,7 @@
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="${basePath}/WEB-INF/jsp/index.jsp" class="logo">
+    <a href="${basePath}home.action" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>M</b>e</span>
       <!-- logo for regular state and mobile devices -->
@@ -114,7 +116,7 @@
             </span>			
           </a>
           <ul class="treeview-menu">           
-            <li><a href="${basePath}modify"><i class="fa fa-circle-o"></i> 密码更改</a></li>            
+            <li><a href="${basePath}modify.action"><i class="fa fa-circle-o"></i> 密码更改</a></li>            
             </li>
           </ul>
         </li>
@@ -122,29 +124,43 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
-            <span>报表管理</span>
+            <span>Korea</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="${basePath}chartPie"><i class="fa fa-pie-chart"></i> 饼状图</a></li>
-            <li><a href="${basePath}chartColumn"><i class="fa fa-bar-chart"></i> 柱形图</a></li>
-            <li><a href="${basePath}chartLine"><i class="fa fa-line-chart"></i> 拆线图</a></li>            
+            <li><a href="${basePath}chartPie.action"><i class="fa fa-pie-chart"></i> 饼状图</a></li>
+            <li><a href="${basePath}chartColumn.action"><i class="fa fa-bar-chart"></i> 柱形图</a></li>
+            <li><a href="${basePath}chartLine.action"><i class="fa fa-line-chart"></i> 拆线图</a></li>            
           </ul>
         </li>
         <li class="treeview">
+			   <a href="#"> <i
+						class="fa fa-pie-chart"></i> <span>Icnkr</span> <span
+						class="pull-right-container"> <i
+							class="fa fa-angle-left pull-right"></i>
+					</span>
+				</a>
+					<ul class="treeview-menu">
+						<li><a href="${basePath}IcnkrChartPie.action"><i
+								class="fa fa-pie-chart"></i> 饼状图</a></li>
+						<li><a href="${basePath}IcnkrColumn.action"><i
+								class="fa fa-bar-chart"></i> 柱形图</a></li>
+						<li><a href="${basePath}IcnkrChartLine.action"><i
+								class="fa fa-line-chart"></i> 拆线图</a></li>
+					</ul>
+			   </li>
+         <li class="treeview">
           <a href="#">
             <i class="fa fa-laptop"></i>
-            <span>报表相关设置</span>
+            <span>报表更新</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Buttons</a></li>            
+            <li><a href="${basePath}list.action"><i class="fa fa-circle-o"></i> 重新抓取数据</a></li>                     
           </ul>
         </li>
        
@@ -156,7 +172,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="${basePath}email"><i class="fa  fa-paper-plane-o"></i> 邮箱联系</a></li>                 
+            <li><a href="${basePath}email.action"><i class="fa  fa-paper-plane-o"></i> 邮箱联系</a></li>                 
           </ul>
         </li>        
       </ul>

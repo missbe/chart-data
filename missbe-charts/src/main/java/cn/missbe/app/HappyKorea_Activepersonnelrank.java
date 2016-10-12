@@ -1,4 +1,4 @@
-﻿package cn.missbe.app;
+package cn.missbe.app;
 
 import cn.dyhack.db.DBConnection;
 import us.codecraft.webmagic.Page;
@@ -32,7 +32,7 @@ public class HappyKorea_Activepersonnelrank implements PageProcessor {
 		// System.out.println(page.getHtml().xpath("//*[@id=\"ct\"]/div[1]/div[2]/div[1]/dl/dd[3]/p/a/text()").all().toString());
 		new DBConnection().AddtoMysql_EnjoyKorea_PostnumbRank(
 				page.getHtml().xpath("//*[@id=\"ct\"]/div[1]/div[2]/div[1]/dl/dt[2]/a/text()").all(),
-				page.getHtml().xpath("//*[@id=\"ct\"]/div[1]/div[2]/div[1]/dl/dd[3]/p/a/text()").all(), "乐在韩国");
+				page.getHtml().xpath("//*[@id=\"ct\"]/div[1]/div[2]/div[1]/dl/dd[3]/p/a/text()").all(), "enjoykorea");
 		// enjoykorea.toString();
 		// new DBConnection().AddtoMysql_EnjoyKorea(enjoykorea);
 

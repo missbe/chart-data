@@ -1,4 +1,4 @@
-﻿package cn.dyhack.db;
+package cn.dyhack.db;
 import cn.dyhack.website.*;
 
 import java.sql.Connection;
@@ -7,22 +7,18 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
-
-
-
 public class DBConnection {
 	 
 	    	private Connection connection=null;
 	    	private Statement  statement=null;
 	    	private String DBdriver="com.mysql.jdbc.Driver";
-	    	private String ConnectionString="jdbc:mysql://119.7.90.61/missbe?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10";//sql6.freemysqlhosting.net/sql6139302?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+	    	private String ConnectionString="jdbc:mysql://124.161.157.37:3306/missbe?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10";//sql6.freemysqlhosting.net/sql6139302?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
 	    	public DBConnection()
 	    	{
 	             try
 	             {
 	            	 Class.forName(DBdriver).newInstance();//加载数据库驱动
-	            	 connection=connection=DriverManager.getConnection(ConnectionString,"root","123");
+	            	 connection=DriverManager.getConnection(ConnectionString,"root","123");
 	            	 //if(!connection.isClosed())
 	            	 //System.out.println("Connection Success");
 	            	 //statement=connection.createStatement();
@@ -32,8 +28,7 @@ public class DBConnection {
 	            	e.printStackTrace();
 	                System.out.println("数据库加载失败！");
 	            	 
-	             }
-	         
+	             }	         
 	    		
 	    	}
 	    	/**
@@ -128,7 +123,8 @@ public class DBConnection {
                 Postnumberlist.toArray(postnumberarray);
                 
 	    		try{
-	    			String sql="TRUNCATE TABLE happykorea_activepersonnelrank";//清空表，并且是id从1自增
+	    			String sql="DELETE FROM happykorea_activepersonnelrank where Websitename='"+websitename+"'";
+
 	    			statement=connection.createStatement();
 	    			statement.executeUpdate(sql);
 	    			

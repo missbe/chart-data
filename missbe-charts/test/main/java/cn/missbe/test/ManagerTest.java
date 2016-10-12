@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import cn.dyhack.db.DBConnection;

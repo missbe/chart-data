@@ -15,6 +15,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>用户密码修改</title>
+<link rel="shortcut icon" href="favicon.ico"> 
 <link rel="stylesheet"
 	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
@@ -55,7 +56,7 @@
 	<div class="wrapper">
 		<header class="main-header">
 			<!-- Logo -->
-			<a href="${basePath}/WEB-INF/jsp/index.jsp" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+			<a href="${basePath}home.action" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
 				<span class="logo-mini"><b>M</b>e</span> <!-- logo for regular state and mobile devices -->
 				<span class="logo-lg"><b>Miss</b>be</span>
 			</a>
@@ -131,7 +132,7 @@
 				</li>
 
 				<li class="treeview"><a href="#"> <i
-						class="fa fa-pie-chart"></i> <span>报表管理</span> <span
+						class="fa fa-pie-chart"></i> <span>Korea</span> <span
 						class="pull-right-container"> <i
 							class="fa fa-angle-left pull-right"></i>
 					</span>
@@ -144,16 +145,34 @@
 						<li><a href="${basePath}chartLine.action"><i class="fa fa-line-chart"></i>
 								拆线图</a></li>
 					</ul></li>
-				<li class="treeview"><a href="#"> <i class="fa fa-laptop"></i>
-						<span>报表相关设置</span> <span class="pull-right-container"> <i
+					<li class="treeview">
+			   <a href="#"> <i
+						class="fa fa-pie-chart"></i> <span>Icnkr</span> <span
+						class="pull-right-container"> <i
 							class="fa fa-angle-left pull-right"></i>
 					</span>
 				</a>
 					<ul class="treeview-menu">
-						<li><a href="#"><i class="fa fa-circle-o"></i> General</a></li>
-						<li><a href="#"><i class="fa fa-circle-o"></i> Icons</a></li>
-						<li><a href="#"><i class="fa fa-circle-o"></i> Buttons</a></li>
-					</ul></li>
+						<li><a href="${basePath}IcnkrChartPie.action"><i
+								class="fa fa-pie-chart"></i> 饼状图</a></li>
+						<li><a href="${basePath}IcnkrColumn.action"><i
+								class="fa fa-bar-chart"></i> 柱形图</a></li>
+						<li><a href="${basePath}IcnkrChartLine.action"><i
+								class="fa fa-line-chart"></i> 拆线图</a></li>
+					</ul>
+			   </li>
+				 <li class="treeview">
+          <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>报表更新</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="${basePath}list.action"><i class="fa fa-circle-o"></i> 重新抓取数据</a></li>                     
+          </ul>
+        </li>
 
 				<li class="treeview"><a href="#"> <i class="fa fa-envelope"></i>
 						<span>联系我们</span> <span class="pull-right-container"> <i
@@ -213,14 +232,18 @@
 									<p>你可以进行密码修改，请记住你的新密码</p>
 								</div>
 								<div class="col-md-5 column">
-									<form role="form"  action="${basePath }modifyPass" method="post">
+									<form role="form"  action="${basePath }modifyPass.action" method="post">
 										<div class="form-group">
+										   <% String pass=(String)request.getAttribute("pass"); %>
 											<label for="exampleInputEmail1">请输入新的密码</label> <input
+											<c:if test="<%=(pass!=null) %>">
+											value="<%=pass %>"
+											</c:if>
 											id="input1" type="text" class="form-control" name="userpass" required />
 										</div>
 										<div class="form-group">
 											<label for="exampleInputPassword">请再次输入密码</label> <input
-											id="input2"	name="userpass_again" type="text" class="form-control"
+											id="input2"	name="repeatUserpass" type="text" class="form-control"
 												required />
 										</div>
 										<button type="submit" class="btn btn-default">确认修改</button>

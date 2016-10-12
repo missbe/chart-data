@@ -16,9 +16,22 @@ public class Conversion extends ActionSupport {
 	@Override
 	public String execute(){
 		User user=(User)ServletActionContext.getRequest().getSession().getAttribute("admin");
-		if(null != user)
-		  return SUCCESS;
-		return "login";
+		
+		if(null != user){			
+			System.out.println("测试session:"+user.getUsername());
+			return SUCCESS;
+		}else{
+			ServletActionContext.getRequest().setAttribute("message", "^_^你还未登录，请登录后操作^_^");
+			return "login";
+		}		
 	}
+//	public String koreatUpdate(){
+//		new HappyKorea_Activepersonnelrank().invokeUpdate();
+//		return SUCCESS;
+//	}
+//	public String icnkrtUpdate(){
+//		new HappyKorea_Activepersonnelrank().invokeUpdate();
+//		return SUCCESS;
+//	}
 
 }

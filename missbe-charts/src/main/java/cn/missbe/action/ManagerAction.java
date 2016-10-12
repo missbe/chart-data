@@ -8,6 +8,7 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import cn.missbe.app.HappyKorea_Activepersonnelrank;
+import cn.missbe.app.Icnkr_Activepersonnelrank;
 import cn.missbe.model.HappyKorea;
 import cn.missbe.service.UserServiceI;
 import cn.missbe.service.impl.UserServiceImpl;
@@ -22,8 +23,19 @@ public class ManagerAction extends ActionSupport {
 	@Override
 	public String execute(){
 		System.out.println("Invoke:execute");
-		new HappyKorea_Activepersonnelrank().invokeUpdate();
-		return SUCCESS;
+		
+		new HappyKorea_Activepersonnelrank().invokeUpdate();///进行更新EnjoyKorea论坛
+		new Icnkr_Activepersonnelrank().invokeUpdate();///进行更新Icnkr论坛
+		
+		List<HappyKorea> userList=list();
+		if(null != userList){
+			setRequestAttribute("userList", userList);	
+			setRequestAttribute("message", "数据更新中ing.......");	
+			return SUCCESS;
+		}else{
+			setRequestAttribute("message", "^_^程序出了点小bug,让管理员修改一下^_^");	
+			return "message";
+		}		
 	}
 	/**
 	 * 负责实现获取前二十名用户
@@ -31,13 +43,15 @@ public class ManagerAction extends ActionSupport {
 	 */
 	public String userList(){
 		System.out.println("Invoke:userList");		
+
 		List<HappyKorea> userList=list();
-		
 		if(null != userList){
+			setRequestAttribute("userList", userList);		
 			return SUCCESS;
-		}else{		
+		}else{
+			setRequestAttribute("message", "^_^数据库出了一些问题，请联系管理员处理^_^");		
 			return "message";
-		}		
+		}			
 	}
 	private List<HappyKorea> list(){
 		UserServiceI serviceImpl=new UserServiceImpl();
@@ -47,14 +61,10 @@ public class ManagerAction extends ActionSupport {
 		} catch (SQLException e) {			
 			System.out.println("userList:"+e.getMessage());
 			e.printStackTrace();
-		}
-		if(null != userList){
-			ServletActionContext.getRequest().setAttribute("userList", userList);		
-			
-		}else{
-			ServletActionContext.getRequest().setAttribute("message", "^_^数据库出了一些问题，请联系管理员处理^_^");		
-			
-		}	
+		}		
 		return userList!=null ?userList:null;
+	}
+	private void setRequestAttribute(String msg,Object object){
+		ServletActionContext.getRequest().setAttribute(msg, object);
 	}
 }

@@ -13,6 +13,17 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <servlet> 
+     <servlet-name>ReportServer</servlet-name> 
+     <servlet-class>com.fr.web.ReportServlet</servlet-class> 
+     <load-on-startup>0</load-on-startup> 
+  </servlet> 
+  <servlet-mapping> 
+     <servlet-name>ReportServer</servlet-name>
+     <url-pattern>/ReportServer</url-pattern> 
+  </servlet-mapping> 
+  
   <filter>
      <filter-name>Struts2</filter-name>
 	 <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
@@ -21,4 +32,13 @@
      <filter-name>Struts2</filter-name>
      <url-pattern>*.action</url-pattern>	 
   </filter-mapping>
+  
+  <session-config>
+    <session-timeout>15</session-timeout>
+   </session-config>
+
+  <error-page>
+     <error-code>404</error-code>
+    <location>/404.jsp</location>
+  </error-page>
 </web-app>

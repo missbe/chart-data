@@ -43,11 +43,11 @@
                                 <h1>Log in</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > 你的用户名 </label>
-                                    <input id="username" name="user.username" required="required" type="text" placeholder="eg:root" style="font-size:14px;"/>
+                                    <input id="username" name="username" required="required" type="text"  style="font-size:14px;"/>
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p"> 你的密码 </label>
-                                    <input id="password" name="user.userpass" required="required" type="password" placeholder="eg:123456" style="font-size:14px;"/> 
+                                    <input id="password" name="userpass" required="required" type="password" style="font-size:14px;"/> 
                                 </p>
                                 <p class="keeplogin"> 
 									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 

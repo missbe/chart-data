@@ -134,7 +134,7 @@
 				</li>
 
 				<li class="treeview"><a href="#"> <i
-						class="fa fa-pie-chart"></i> <span>报表管理</span> <span
+						class="fa fa-pie-chart"></i> <span>Korea</span> <span
 						class="pull-right-container"> <i
 							class="fa fa-angle-left pull-right"></i>
 					</span>
@@ -146,16 +146,36 @@
 								class="fa fa-bar-chart"></i> 柱形图</a></li>
 						<li><a href="${basePath}chartLine.action"><i
 								class="fa fa-line-chart"></i> 拆线图</a></li>
-					</ul></li>
-				<li class="treeview"><a href="#"> <i class="fa fa-laptop"></i>
-						<span>报表相关设置</span> <span class="pull-right-container"> <i
+					</ul>
+			   </li>
+			   <li class="treeview">
+			   <a href="#"> <i
+						class="fa fa-pie-chart"></i> <span>Icnkr</span> <span
+						class="pull-right-container"> <i
 							class="fa fa-angle-left pull-right"></i>
 					</span>
 				</a>
 					<ul class="treeview-menu">
-						<li><a href="${basePath}list.action"><i
-								class="fa fa-circle-o"></i>数据更新</a></li>
-					</ul></li>
+						<li><a href="${basePath}IcnkrChartPie.action"><i
+								class="fa fa-pie-chart"></i> 饼状图</a></li>
+						<li><a href="${basePath}IcnkrColumn.action"><i
+								class="fa fa-bar-chart"></i> 柱形图</a></li>
+						<li><a href="${basePath}IcnkrChartLine.action"><i
+								class="fa fa-line-chart"></i> 拆线图</a></li>
+					</ul>
+			   </li>
+	   <li class="treeview">
+          <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>报表更新</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="${basePath}list.action"><i class="fa fa-circle-o"></i> 重新抓取数据</a></li>                     
+          </ul>
+        </li>
 
 				<li class="treeview"><a href="#"> <i class="fa fa-envelope"></i>
 						<span>联系我们</span> <span class="pull-right-container"> <i
@@ -189,33 +209,55 @@
 
 				<div class="container">
 					<div class="row clearfix">
-						<div class="col-md-12 column">
-							<table class="table">
+					<div class="col-md-8 column">
+					<% String messgae=(String)request.getAttribute("message"); %>
+					<div class="page-header text-center">
+				        <h3>
+					      <c:if test="<%=(null!=messgae) %>">
+					        ${request.message }
+					      </c:if> 
+				        </h3>
+			         </div>
+			       <dl class="dl-horizontal">
+				     <dt>
+				           数据更新
+				    </dt>
+			        <dd>
+			                      你可点击按钮实现数据重新抓取，由于数据较大。更新数据可能花较长时间，建议您在空闲时间进行更新操作。
+				    </dd>	
+			        </dl> 
+			        <form action="${basePath }update.action">
+			         <input type="submit" onclick="action()" value="数据更新抓取"  class="btn btn-block btn-info btn-lg active" />
+				   </form>	
+						</div>
+					<div class="col-md-8 column">
+			                 <h3 class="text-center text-info">
+				              论坛活跃用户预览表
+			                 </h3>
+		                </div>		            
+						<div class="col-md-8 column">
+							<table class="table table-bordered table-hover">
 								<thead>
 									<tr>
-										<th>编号</th>
-										<th>产品</th>
-										<th>交付时间</th>
-										<th>状态</th>
+										<th>序号</th>
+										<th>用户名</th>
+										<th>查看评论量</th>
+										<th>站点</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
+								<c:forEach var="item" items="<%=userList%>" begin="0"
+												end="<%=end%>" varStatus="index" step="1">
+									<tr class="info">
 										<c:if test="<%=(null != userList)%>">
-											<c:forEach var="item" items="<%=userList%>" begin="0"
-												end="<%=end%>" step="1">
-												<td>${item.rank}</td>
+											
+												<td>${index.count}</td>
 												<td>${item.author}</td>
 												<td>${item.postNumber}</td>
-											</c:forEach>
+											    <td>${item.webSiteName}</td>
 										</c:if>
 									</tr>
-									<tr class="info">
-										<td>4</td>
-										<td>TB - Monthly</td>
-										<td>04/04/2012</td>
-										<td>Call in to confirm</td>
-									</tr>
+									</c:forEach>									
 								</tbody>
 							</table>
 						</div>

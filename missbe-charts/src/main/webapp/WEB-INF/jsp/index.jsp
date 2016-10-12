@@ -124,7 +124,7 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
-            <span>报表管理</span>
+            <span>Korea</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -136,15 +136,31 @@
           </ul>
         </li>
         <li class="treeview">
+			   <a href="#"> <i
+						class="fa fa-pie-chart"></i> <span>Icnkr</span> <span
+						class="pull-right-container"> <i
+							class="fa fa-angle-left pull-right"></i>
+					</span>
+				</a>
+					<ul class="treeview-menu">
+						<li><a href="${basePath}IcnkrChartPie.action"><i
+								class="fa fa-pie-chart"></i> 饼状图</a></li>
+						<li><a href="${basePath}IcnkrColumn.action"><i
+								class="fa fa-bar-chart"></i> 柱形图</a></li>
+						<li><a href="${basePath}IcnkrChartLine.action"><i
+								class="fa fa-line-chart"></i> 拆线图</a></li>
+					</ul>
+			   </li>
+         <li class="treeview">
           <a href="#">
             <i class="fa fa-laptop"></i>
-            <span>报表相关设置</span>
+            <span>报表更新</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="${basePath}list.action"><i class="fa fa-circle-o"></i>数据更新</a></li>                      
+            <li><a href="${basePath}list.action"><i class="fa fa-circle-o"></i> 重新抓取数据</a></li>                     
           </ul>
         </li>
        
