@@ -5,7 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+/**
+ * 工具类，获取数据库的连接
+ * @author Administrator
+ *
+ */
 public final class DBUtil {
 
 	private static String url = "jdbc:mysql://localhost:3306/missbe";

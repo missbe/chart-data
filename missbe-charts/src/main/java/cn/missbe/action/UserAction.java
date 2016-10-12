@@ -16,6 +16,9 @@ public class UserAction extends ActionSupport {
 	private User user;
 	private String userpass;
 	
+	/**
+	 * 负责用户登录处理，成功进入首页
+	 */
 	@Override
 	public String execute(){
 		System.out.println(user.getUsername()+":"+user.getUserpass());
@@ -37,6 +40,10 @@ public class UserAction extends ActionSupport {
 			 return INPUT;
 		}	  
 	}
+	/**
+	 * 用户密码修改处理
+	 * @return 结果-向前台发送提示信息
+	 */
 	public String modifyPassword(){
 //		System.out.println("userpass:"+userpass);
 		UserServiceI service=new UserServiceImpl();

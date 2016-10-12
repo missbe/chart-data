@@ -5,8 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import cn.missbe.model.HappyKorea;
 import cn.missbe.model.User;
 import cn.missbe.service.UserServiceI;
 import cn.missbe.util.DBUtil;
@@ -65,6 +68,33 @@ public class UserServiceImpl implements UserServiceI {
 		
      	return  number>0 ? true : false;	
 	
+	}
+
+	@Override
+	public List<HappyKorea> getUserList() throws SQLException {
+		// TODO Auto-generated method stub
+		Connection conn=DBUtil.getConnection();
+		String sql="SELECT * FROM  HappyKorea_Activepersonnelrank  limit 20";
+		PreparedStatement statement=conn.prepareStatement(sql,
+				                   ResultSet.TYPE_SCROLL_SENSITIVE,
+				                   ResultSet.CONCUR_UPDATABLE);		
+		System.out.println("SQL:"+sql);
+		
+		ResultSet rs=statement.executeQuery();
+		List<HappyKorea> userList=new ArrayList<HappyKorea>();
+		boolean flag=false;///判断是否查询到数据的标志
+		while(rs.next()){
+			HappyKorea korea=new HappyKorea();
+			korea.setAuthor(rs.getString("author"));
+			korea.setPostNumber(rs.getString("postnumber"));
+			korea.setRank(rs.getString("rank"));
+			korea.setWebSiteName("websitename");
+			userList.add(korea);
+			if(!flag){
+			   flag=true;
+			}
+		}
+		return flag ? userList : null;
 	}
 
 }

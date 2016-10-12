@@ -1,14 +1,11 @@
 ﻿package cn.dyhack.db;
 import cn.dyhack.website.*;
 
-import java.awt.List;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
-
-import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
 
 
@@ -19,13 +16,13 @@ public class DBConnection {
 	    	private Connection connection=null;
 	    	private Statement  statement=null;
 	    	private String DBdriver="com.mysql.jdbc.Driver";
-	    	private String ConnectionString="jdbc:mysql://124.161.158.126/missbe?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10";//sql6.freemysqlhosting.net/sql6139302?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+	    	private String ConnectionString="jdbc:mysql://119.7.90.61/missbe?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10";//sql6.freemysqlhosting.net/sql6139302?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
 	    	public DBConnection()
 	    	{
 	             try
 	             {
 	            	 Class.forName(DBdriver).newInstance();//加载数据库驱动
-	            	 connection=DriverManager.getConnection(ConnectionString,"root","123");
+	            	 connection=connection=DriverManager.getConnection(ConnectionString,"root","123");
 	            	 //if(!connection.isClosed())
 	            	 //System.out.println("Connection Success");
 	            	 //statement=connection.createStatement();
@@ -38,6 +35,22 @@ public class DBConnection {
 	             }
 	         
 	    		
+	    	}
+	    	/**
+	    	 * 获取数库连接
+	    	 * @return
+	    	 */
+	    	public Connection getConnection() {
+	    		Connection conn=null;
+	    		if (null == conn) {
+	    			try {
+	    				conn=DriverManager.getConnection(ConnectionString,"root","123");
+	    			} catch (SQLException e) {
+	    				e.printStackTrace();
+	    				throw new RuntimeException(e);
+	    			}
+	    		}
+	    		return connection;
 	    	}
 	    	/*
 	    	 * 通用的导入到数据库的方法
@@ -145,8 +158,4 @@ public class DBConnection {
 		    		}
 	    		
 	    	}
-	    	 public static void main(String[] args) {
-	    	       //DBConnection DB=new DBConnection();
-	    	    }   
-
 }

@@ -1,7 +1,7 @@
 <%@page import="cn.missbe.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8" import="java.util.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -144,9 +144,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Buttons</a></li>            
+            <li><a href="${basePath}list.action"><i class="fa fa-circle-o"></i>数据更新</a></li>                      
           </ul>
         </li>
        

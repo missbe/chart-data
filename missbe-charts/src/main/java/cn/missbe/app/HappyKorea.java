@@ -4,9 +4,7 @@ import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
 
-import java.sql.Time;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,7 +20,8 @@ public class HappyKorea implements PageProcessor {
     public static final String URL_POST = "http://bbs.enjoykorea.net/thread-\\d+\\-1-1.html";
     public static DateFormat dft=new SimpleDateFormat("yyyy-MM-dd HH:MM:SS");
     public static String timeformat="yyyy-MM-dd HH:mm:ss"; 
-    public HappyKorea(int subdays) //构造器初始化时间。当前时间减去30天
+    @SuppressWarnings("static-access")
+	public HappyKorea(int subdays) //构造器初始化时间。当前时间减去30天
     {
     	
     	Calendar Cal = Calendar.getInstance();
@@ -49,7 +48,7 @@ public class HappyKorea implements PageProcessor {
     
     public static java.util.List<String> UrlIsInDB(java.util.List<String> UrlList)
     {
-    	for(String str : UrlList)
+    	for(@SuppressWarnings("unused") String str : UrlList)
     	{
     		
     	}
@@ -162,7 +161,7 @@ public class HappyKorea implements PageProcessor {
     }
    
      
-    public static void main(String[] args) {
+    public  void invokeHappyKorea() {
     	
         Spider.create(new HappyKorea(-30)).addUrl("http://bbs.enjoykorea.net").thread(20).run();
     	

@@ -1,8 +1,10 @@
 package cn.missbe.model;
 
-
-import java.util.Date;
-
+/**
+ * 
+ * @author Administrator
+ *用户表模型-封闭用户相关数据
+ */
 public class User {	
     
     private String username;	
