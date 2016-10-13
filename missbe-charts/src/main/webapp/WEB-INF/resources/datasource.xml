@@ -9,7 +9,7 @@
 </Connection>
 <Connection name="JDBC2" class="com.fr.data.impl.JDBCDatabaseConnection">
 <DatabaseAttr/>
-<JDBCDatabaseAttr url="jdbc:mysql://localhost/missbe" driver="com.mysql.jdbc.Driver" user="root" password="___0022007c0039" encryptPassword="true">
+<JDBCDatabaseAttr url="jdbc:mysql://localhost/missbe" driver="com.mysql.jdbc.Driver" user="root" password="___007e00270079007c000600b0006b0074007d" encryptPassword="true">
 <DBCPAttr/>
 </JDBCDatabaseAttr>
 </Connection>
