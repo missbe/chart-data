@@ -226,11 +226,11 @@
 			                      你可点击按钮实现数据重新抓取，由于数据较大。更新数据可能花较长时间，建议您在空闲时间进行更新操作。
 				    </dd>	
 			        </dl> 
-			        <form action="${basePath }update.action">
-			         <input type="submit" id="buttonid" value="数据更新抓取" 
-			            class="btn btn-block btn-info btn-lg active" />
-				   </form>	
-						</div>
+			        
+			         <a   href="${basePath}update.action"
+			            class="btn btn-block btn-info btn-lg active" >数据更新抓取</a>
+				    
+				  </div>
 					<div class="col-md-8 column">
 			                 <h3 class="text-center text-info">
 				              论坛活跃用户预览表
@@ -302,14 +302,6 @@
 	<script src="${basePath}/static/adminLte/dist/js/app.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="${basePath}/static/adminLte/dist/js/demo.js"></script>
-	<script>
-	  $("#buttonid").val("数据更新抓取");	  
-	   
-	    $("#buttonid").click(function(){
-	    	$("#buttonid").val("数据更新中ing.....");
-			$("#buttonid").attr("disabled", "disabled");
-		});		
-		
-	</script>
+	
 </body>
 </html>
