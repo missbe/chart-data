@@ -112,7 +112,7 @@
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
         
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-user"></i>
             <span>用户管理</span> 
@@ -156,7 +156,7 @@
 								class="fa fa-line-chart"></i> 拆线图</a></li>
 					</ul>
 			   </li>
-         <li class="treeview">
+         <li class="treeview active">
           <a href="#">
             <i class="fa fa-laptop"></i>
             <span>报表更新</span>
@@ -192,8 +192,7 @@
     <!-- Content Header (Page header) -->   
    
 	<!-- Main content -->
-    <section class="content">
-     <%request.setAttribute("message", "^_^数据库出了一些问题，请联系管理员处理^_^");	 %>
+    <section class="content">    
 <div class="container">
 	<div class="row clearfix" style="margin-top:10%;">
 		<div class="col-md-3 col-md-offset-2 ">

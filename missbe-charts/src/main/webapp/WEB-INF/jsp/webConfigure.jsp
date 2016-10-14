@@ -121,7 +121,7 @@
 				<ul class="sidebar-menu">
 					<li class="header">MAIN NAVIGATION</li>
 
-					<li class="treeview active"><a href="#"> <i
+					<li class="treeview"><a href="#"> <i
 							class="fa fa-user"></i> <span>用户管理</span> <span
 							class="pull-right-container"> <i
 								class="fa fa-angle-left pull-right"></i>
@@ -164,7 +164,7 @@
 								class="fa fa-line-chart"></i> 拆线图</a></li>
 					</ul>
 			   </li>
-	   <li class="treeview">
+	   <li class="treeview active">
           <a href="#">
             <i class="fa fa-laptop"></i>
             <span>报表更新</span>
@@ -227,7 +227,8 @@
 				    </dd>	
 			        </dl> 
 			        <form action="${basePath }update.action">
-			         <input type="submit" onclick="action()" value="数据更新抓取"  class="btn btn-block btn-info btn-lg active" />
+			         <input type="submit" id="buttonid" value="数据更新抓取" 
+			            class="btn btn-block btn-info btn-lg active" />
 				   </form>	
 						</div>
 					<div class="col-md-8 column">
@@ -301,5 +302,14 @@
 	<script src="${basePath}/static/adminLte/dist/js/app.min.js"></script>
 	<!-- AdminLTE for demo purposes -->
 	<script src="${basePath}/static/adminLte/dist/js/demo.js"></script>
+	<script>
+	  $("#buttonid").val("数据更新抓取");	  
+	   
+	    $("#buttonid").click(function(){
+	    	$("#buttonid").val("数据更新中ing.....");
+			$("#buttonid").attr("disabled", "disabled");
+		});		
+		
+	</script>
 </body>
 </html>

@@ -21,7 +21,7 @@ public class Conversion extends ActionSupport {
 			System.out.println("测试session:"+user.getUsername());
 			return SUCCESS;
 		}else{
-			ServletActionContext.getRequest().setAttribute("message", "^_^你还未登录，请登录后操作^_^");
+			ServletActionContext.getRequest().setAttribute("message", "^_^你还未登录或者会话过期^_^");
 			return "login";
 		}		
 	}

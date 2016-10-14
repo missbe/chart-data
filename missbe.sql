@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS admin_inf(
    id int primary key AUTO_INCREMENT,
    username varchar(20) NOT NULL,
    userpass varchar(20) NOT NULL,
-   update_time DATE
+   update_time datetime
 );
 #--获取enjoykorea的数据
 DROP TABLE IF EXISTS `enjoykorea_spider`;

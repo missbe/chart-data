@@ -29,7 +29,7 @@ p{color:#fff;margin-top:40px;font-size:24px;}
 		document.getElementById("num").innerHTML=num;
 		if(num<0){
 			document.getElementById("num").innerHTML=0;
-			location.href="http://www.lovesora.cn/";
+			location.href="http://www.missbe.cn/chart";
 			}
 		}
 	setInterval("redirect()", 1000);

@@ -1,6 +1,7 @@
 package cn.missbe.action;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
@@ -24,18 +25,34 @@ public class ManagerAction extends ActionSupport {
 	public String execute(){
 		System.out.println("Invoke:execute");
 		
-		new HappyKorea_Activepersonnelrank().invokeUpdate();///进行更新EnjoyKorea论坛
-		new Icnkr_Activepersonnelrank().invokeUpdate();///进行更新Icnkr论坛
 		
-		List<HappyKorea> userList=list();
-		if(null != userList){
-			setRequestAttribute("userList", userList);	
-			setRequestAttribute("message", "数据更新中ing.......");	
-			return SUCCESS;
-		}else{
-			setRequestAttribute("message", "^_^程序出了点小bug,让管理员修改一下^_^");	
-			return "message";
-		}		
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				new HappyKorea_Activepersonnelrank().invokeUpdate();///进行更新EnjoyKorea论坛
+				try {
+					Thread.sleep(1000*10);
+				} catch (InterruptedException e) {
+					System.out.println("线程被打断异常");
+					e.printStackTrace();
+				}
+				new Icnkr_Activepersonnelrank().invokeUpdate();///进行更新Icnkr论坛
+			}
+		}).start();
+		//		List<HappyKorea> userList=list();
+//		if(null != userList){
+//			setRequestAttribute("userList", userList);	
+//			setRequestAttribute("message", "数据更新中完成");	
+//			
+//			return SUCCESS;
+//		}else{
+//			setRequestAttribute("message", "^_^程序出了点小bug,让管理员修改一下^_^");	
+//			return "message";
+//		}	
+		setRequestAttribute("message", "^_^数据在后台进行更新哦^_^");
+		return "message";
 	}
 	/**
 	 * 负责实现获取前二十名用户
@@ -45,13 +62,18 @@ public class ManagerAction extends ActionSupport {
 		System.out.println("Invoke:userList");		
 
 		List<HappyKorea> userList=list();
-		if(null != userList){
-			setRequestAttribute("userList", userList);		
-			return SUCCESS;
-		}else{
-			setRequestAttribute("message", "^_^数据库出了一些问题，请联系管理员处理^_^");		
-			return "message";
-		}			
+		if(null == userList){
+			
+			HappyKorea temp=new HappyKorea();
+			temp.setAuthor("暂时无数据");
+			temp.setPostNumber("暂时无数据");
+			temp.setPostNumber("暂时无数据");
+			temp.setWebSiteName("暂时无数据");
+			userList=new ArrayList<HappyKorea>();
+			userList.add(temp);
+		}	
+		setRequestAttribute("userList", userList);	
+		return SUCCESS;
 	}
 	private List<HappyKorea> list(){
 		UserServiceI serviceImpl=new UserServiceImpl();

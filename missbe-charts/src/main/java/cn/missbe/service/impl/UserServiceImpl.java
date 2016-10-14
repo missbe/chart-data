@@ -74,7 +74,7 @@ public class UserServiceImpl implements UserServiceI {
 	public List<HappyKorea> getUserList() throws SQLException {
 		// TODO Auto-generated method stub
 		Connection conn=DBUtil.getConnection();
-		String sql="SELECT * FROM  HappyKorea_Activepersonnelrank ORDER BY postnumber DESC";
+		String sql="SELECT * FROM  happykorea_activepersonnelrank ORDER BY postnumber DESC";
 		PreparedStatement statement=conn.prepareStatement(sql,
 				                   ResultSet.TYPE_SCROLL_SENSITIVE,
 				                   ResultSet.CONCUR_UPDATABLE);		

@@ -12,9 +12,9 @@ import java.sql.SQLException;
  */
 public final class DBUtil {
 
-	private static String url = "jdbc:mysql://localhost:3306/missbe";
+	private static String url = "jdbc:mysql://119.29.251.86:3306/missbe";
 	private static String user = "root";
-	private static String psw = "123";
+	private static String psw = "missbe@cn";
 	private static Connection conn;
 
 	static {

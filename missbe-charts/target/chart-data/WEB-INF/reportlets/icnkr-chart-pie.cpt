@@ -6,11 +6,11 @@
 <Attributes maxMemRowCount="-1"/>
 <Connection class="com.fr.data.impl.NameDatabaseConnection">
 <DatabaseName>
-<![CDATA[JDBC2]]></DatabaseName>
+<![CDATA[FRDemo]]></DatabaseName>
 </Connection>
 <Query>
 <![CDATA[select distinct author,Postnumber from (
-select distinct author,Postnumber from HappyKorea_Activepersonnelrank  
+select distinct author,Postnumber from happykorea_activepersonnelrank  
 where websitename='icnkr'
 ) site limit 10;]]></Query>
 </TableData>

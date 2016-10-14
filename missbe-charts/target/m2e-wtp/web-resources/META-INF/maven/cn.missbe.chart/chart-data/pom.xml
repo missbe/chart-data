@@ -65,6 +65,14 @@
 			<artifactId>webmagic-extension</artifactId>
 			<version>0.5.3</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.6</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>chart-data</finalName>
@@ -73,7 +81,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.5.1</version>
 				<configuration>
-				    <encoding>UTF-8</encoding>
+					<encoding>UTF-8</encoding>
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>

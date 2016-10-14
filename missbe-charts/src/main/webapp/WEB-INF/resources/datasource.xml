@@ -3,7 +3,7 @@
 <ConnectionMap>
 <Connection name="FRDemo" class="com.fr.data.impl.JDBCDatabaseConnection">
 <DatabaseAttr/>
-<JDBCDatabaseAttr url="jdbc:sqlite://${ENV_HOME}/../FRDemo.db" driver="org.sqlite.JDBC" user="" password="___" encryptPassword="true">
+<JDBCDatabaseAttr url="jdbc:mysql://119.29.251.86/missbe" driver="com.mysql.jdbc.Driver" user="root" password="___007e00270079007c000600b0006b0074007d" encryptPassword="true">
 <DBCPAttr/>
 </JDBCDatabaseAttr>
 </Connection>

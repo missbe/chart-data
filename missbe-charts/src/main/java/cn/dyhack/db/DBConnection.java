@@ -12,13 +12,13 @@ public class DBConnection {
 	    	private Connection connection=null;
 	    	private Statement  statement=null;
 	    	private String DBdriver="com.mysql.jdbc.Driver";
-	    	private String ConnectionString="jdbc:mysql://124.161.157.37:3306/missbe?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10";//sql6.freemysqlhosting.net/sql6139302?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+	    	private String ConnectionString="jdbc:mysql://119.29.251.86:3306/missbe?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10";//sql6.freemysqlhosting.net/sql6139302?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
 	    	public DBConnection()
 	    	{
 	             try
 	             {
 	            	 Class.forName(DBdriver).newInstance();//加载数据库驱动
-	            	 connection=DriverManager.getConnection(ConnectionString,"root","123");
+	            	 connection=DriverManager.getConnection(ConnectionString,"root","missbe@cn");
 	            	 //if(!connection.isClosed())
 	            	 //System.out.println("Connection Success");
 	            	 //statement=connection.createStatement();
@@ -39,7 +39,7 @@ public class DBConnection {
 	    		Connection conn=null;
 	    		if (null == conn) {
 	    			try {
-	    				conn=DriverManager.getConnection(ConnectionString,"root","123");
+	    				conn=DriverManager.getConnection(ConnectionString,"root","missbe@cn");
 	    			} catch (SQLException e) {
 	    				e.printStackTrace();
 	    				throw new RuntimeException(e);
@@ -130,7 +130,7 @@ public class DBConnection {
 	    			
 	    			for(int i=0;i<20;i++)
 	    			{
-		    		sql="INSERT INTO HappyKorea_Activepersonnelrank (Author,Postnumber,Websitename) VALUES(?,?,?);";
+		    		sql="INSERT INTO happykorea_activepersonnelrank (Author,Postnumber,Websitename) VALUES(?,?,?);";
 		    	    PreparedStatement ps=connection.prepareStatement(sql);
 		    		ps.setString(1, authorarray[i]);
 		    		ps.setString(2, postnumberarray[i]);
