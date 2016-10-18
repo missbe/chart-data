@@ -13,7 +13,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>折线图</title>
+  <title>Icnkr Report</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="shortcut icon" href="favicon.ico"> 
@@ -130,7 +130,7 @@
           <ul class="treeview-menu">
             <li><a href="${basePath}chartPie.action"><i class="fa fa-pie-chart"></i> 饼状图</a></li>
             <li><a href="${basePath}chartColumn.action"><i class="fa fa-bar-chart"></i> 柱形图</a></li>
-            <li><a href="${basePath}chartLine.action"><i class="fa fa-line-chart"></i> 拆线图</a></li>
+            <li><a href="${basePath}chartLine.action"><i class="fa fa-line-chart"></i> 拆线图</a></li> 
             <li><a href="${basePath}koreaTotal.action"><i class="fa fa-line-chart"></i> 统计报表</a></li>            
           </ul>
         </li>
@@ -149,7 +149,7 @@
 						<li><a href="${basePath}IcnkrChartLine.action"><i
 								class="fa fa-line-chart"></i> 拆线图</a></li>
 						<li><a href="${basePath}icnkrTotal.action">
-						 <i class="fa fa-line-chart"></i> 统计报表</a></li>
+						  <i class="fa fa-line-chart"></i>统计报表</a></li>
 					</ul>
 			   </li>
          <li class="treeview">
@@ -188,20 +188,20 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-             Icnkr--拆线图统计相关信息        
+         Icnkr--统计报表
       </h1> 
       <ol class="breadcrumb">
         <li><a href="${basePath}index">
         <i class="fa fa-dashboard"></i>主页</a></li>        
-        <li class="active">拆线图</li>
+        <li class="active">Icnkr报表</li>
       </ol>	  
     </section>			
 	<!-- Main content -->
-    <section class="content">    
-      <!-- Default box -->  
-       <iframe id="mainiframe"  width="100%" height="720px"
-         marginwidth="0" marginheight="0" 
-         frameborder="0" scrolling="no" src="${basePath }ReportServer?reportlet=icnkr-chart-line.cpt">
+    <section class="content">     
+      <!-- Default box -->
+      <iframe id="mainiframe"  width="100%" height="760px"
+         frameborder="0" scrolling="no" marginwidth="0" marginheight="0"         
+         src="${basePath }ReportServer?reportlet=icnkr-total.cpt">
       </iframe>	  
       <!-- /.box -->
     </section>

@@ -2,7 +2,7 @@
 <ReportServerParameter xmlVersion="20151125" releaseVersion="8.0.0">
 <ServerLogLevel>
 <![CDATA[WARNING]]></ServerLogLevel>
-<FRLogCleanAttr isStart="true" rate="90" lastTime="1468483215968"/>
+<FRLogCleanAttr isStart="true" rate="90" lastTime="1476502822742"/>
 <LOGCNG/>
 <FARRAY/>
 <Write serverCharacterEncoding="GBK"/>
@@ -202,7 +202,7 @@
 <![CDATA[${i18n('Utils-Submit')}]]></Text>
 <IconName>
 <![CDATA[submit]]></IconName>
-<Verify failVerifySubmit="false"/>
+<Verify isVerify="true" failVerifySubmit="false"/>
 </Widget>
 <Widget class="com.fr.report.web.button.write.Verify">
 <WidgetAttr>
@@ -1737,7 +1737,7 @@ BY!QNJ~
 </Style>
 </SAttr>
 </Styles>
-<SessionInfo checkTime="40000" heartBeat="true"/>
+<SessionInfo checkTime="40000" deadTime="400000" heartBeat="true"/>
 <PrintAttrProvider popupFlashPrint="true" popupPdfPrint="true" popupAppletPrint="true" popupNativePrint="true" flashFitPaper="false"/>
 <CustomLocale>
 <Parameters/>

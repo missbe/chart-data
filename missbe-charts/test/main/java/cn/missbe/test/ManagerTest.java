@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import cn.dyhack.db.DBConnection;
@@ -15,7 +16,7 @@ import cn.missbe.service.impl.UserServiceImpl;
 
 public class ManagerTest {
   
-	@Test
+	@Ignore
 	public void testGetUserList(){
 		UserServiceI serviceI=new UserServiceImpl();
 		List<HappyKorea> userList=null;
@@ -32,13 +33,13 @@ public class ManagerTest {
 		}
 		assertNotNull(userList);
 	}
-	@Test
+	@Ignore
 	public void testConnection(){
 		System.out.println("testConnection:测试conn");
 		assertNotNull(new DBConnection().getConnection());
 	}
 	
-	@Test
+	@Ignore
 	public void testUpdate(){
 		new HappyKorea_Activepersonnelrank().invokeUpdate();
 		System.out.println("testUpdate:测试更新");

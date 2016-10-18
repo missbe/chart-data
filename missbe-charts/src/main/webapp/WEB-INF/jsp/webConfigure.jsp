@@ -146,6 +146,8 @@
 								class="fa fa-bar-chart"></i> 柱形图</a></li>
 						<li><a href="${basePath}chartLine.action"><i
 								class="fa fa-line-chart"></i> 拆线图</a></li>
+						<li><a href="${basePath}koreaTotal.action">
+						     <i class="fa fa-line-chart"></i> 统计报表</a></li>
 					</ul>
 			   </li>
 			   <li class="treeview">
@@ -162,6 +164,8 @@
 								class="fa fa-bar-chart"></i> 柱形图</a></li>
 						<li><a href="${basePath}IcnkrChartLine.action"><i
 								class="fa fa-line-chart"></i> 拆线图</a></li>
+						<li><a href="${basePath}icnkrTotal.action">
+						   <i class="fa fa-line-chart"></i> 统计报表</a></li>
 					</ul>
 			   </li>
 	   <li class="treeview active">

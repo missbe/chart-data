@@ -130,7 +130,8 @@
           <ul class="treeview-menu">
             <li><a href="${basePath}chartPie.action"><i class="fa fa-pie-chart"></i> 饼状图</a></li>
             <li><a href="${basePath}chartColumn.action"><i class="fa fa-bar-chart"></i> 柱形图</a></li>
-            <li><a href="${basePath}chartLine.action"><i class="fa fa-line-chart"></i> 拆线图</a></li>            
+            <li><a href="${basePath}chartLine.action"><i class="fa fa-line-chart"></i> 拆线图</a></li>
+            <li><a href="${basePath}koreaTotal.action"><i class="fa fa-line-chart"></i> 统计报表</a></li>            
           </ul>
         </li>
         <li class="treeview">
@@ -147,6 +148,8 @@
 								class="fa fa-bar-chart"></i> 柱形图</a></li>
 						<li><a href="${basePath}IcnkrChartLine.action"><i
 								class="fa fa-line-chart"></i> 拆线图</a></li>
+						<li><a href="${basePath}icnkrTotal.action">
+						   <i class="fa fa-line-chart"></i> 统计报表</a></li>
 					</ul>
 			   </li>
         <li class="treeview">
@@ -222,20 +225,23 @@
               <h3 class="box-title">Quick Email</h3>              
             </div>
             <div class="box-body">
-              <form action="#" method="post">
+              <form action="${basePath }send.action" method="post" id="emailForm">
                 <div class="form-group">
-                  <input type="email" class="form-control" name="emailto" value="love1208tt@foxmail.com">
+                  <input type="email"  class="form-control" name="emailto"  readonly="readonly" value="missbe-chart@foxmail.com">
                 </div>
                 <div class="form-group">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject">
+                  <input type="text" id="emailSubject"  class="form-control" name="subject" placeholder="Subject">
+                  <span id="subjectMsg" style="color:red;font-size:13px;"></span>
                 </div>
                 <div>
-                  <textarea class="textarea" placeholder="Message" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                  <textarea class="textarea"  id="emailText" placeholder="Message" name="message"
+                   style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                 </div>
+                <span id="textMsg" style="color:red;font-size:13px;"></span>
               </form>
             </div>
             <div class="box-footer clearfix">
-              <button type="button" class="pull-right btn btn-default" id="sendEmail">Send
+              <button type="button" class="pull-right btn btn-default" id="send">Send
                 <i class="fa fa-arrow-circle-right"></i></button>
             </div>
           </div>
@@ -279,5 +285,29 @@
 <script src="${basePath}/static/adminLte/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="${basePath}/static/adminLte/dist/js/demo.js"></script>
+<script>
+   $("#send").click(function(){
+	  var subject=$("#emailSubject").val();
+	  var text=$("#emailText").val();
+	  console.log("Subject:"+subject+" Text:"+text)
+	  if(0==subject.length){
+		  $("#subjectMsg").html("标题不能为空哦^_^");
+		  $("#emailSubject").focus();
+	//	  alert("标题不能为空哦^_^");
+		  return false;
+	  }else{
+		  $("#subjectMsg").html("");
+	  }
+	  if(0==text.length){
+		  $("#textMsg").html("内容不能为空哦^_^");
+		  $("#emailText").focus();
+	//	  alert("内容不能为空哦^_^");
+		  return false;
+	  }else{
+		  $("#textMsg").html("");
+	  }
+	  $("#emailForm").submit();
+   });
+</script>
 </body>
 </html>

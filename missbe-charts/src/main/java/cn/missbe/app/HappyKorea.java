@@ -20,7 +20,11 @@ public class HappyKorea implements PageProcessor {
     public static final String Index_URL_regex="[a-zA-z]+://[^\\s]*";
     public static final String URL_POST = "http://bbs.enjoykorea.net/thread-\\d+\\-1-1.html";
     public static DateFormat dft=new SimpleDateFormat("yyyy-MM-dd HH:MM:SS");
-    public static String timeformat="yyyy-MM-dd HH:mm:ss"; 
+    public static String timeformat="yyyy-MM-dd HH:mm:ss";
+    /**
+     * 参数-时间 相对于当前时间的数据
+     * @param subdays
+     */
     @SuppressWarnings("static-access")
 	public HappyKorea(int subdays) //构造器初始化时间。当前时间减去30天
     {

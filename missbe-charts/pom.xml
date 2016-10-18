@@ -72,6 +72,24 @@
 			<artifactId>mail</artifactId>
 			<version>1.4.6</version>
 		</dependency>
+	
+	    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-email -->
+       <dependency>
+          <groupId>org.apache.commons</groupId>
+          <artifactId>commons-email</artifactId>
+          <version>1.4</version>
+       </dependency>
+	    
+		
+		<dependency>
+	       <!--依赖的group ID-->
+	       <groupId>com.icegreen</groupId>
+		   <!--依赖的artifact ID-->
+		   <artifactId>greenmail</artifactId>
+		   <!--依赖的版本号。 在Maven 2里, 也可以配置成版本号的范围。-->
+		   <version>1.3</version>
+		   <scope>test</scope>
+	   </dependency>
 
 	</dependencies>
 	<build>

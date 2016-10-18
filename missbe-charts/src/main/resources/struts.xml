@@ -24,6 +24,12 @@
             <result name="message">/WEB-INF/jsp/message.jsp</result> 
             <result name="login">/index.jsp</result>   
        </action>
+       
+        <action name="send" class="cn.missbe.action.ManagerAction" method="sendMail" >
+            <result name="success">/WEB-INF/jsp/message.jsp</result>              
+            <result name="login">/index.jsp</result> 
+       </action>
+       
        <action name="update" class="cn.missbe.action.ManagerAction" >
             <result name="success">/WEB-INF/jsp/message.jsp</result>
             <result name="message">/WEB-INF/jsp/message.jsp</result>   
@@ -67,6 +73,18 @@
         
         <action  name="chartColumn" class="cn.missbe.action.Conversion">
             <result name="success">/WEB-INF/jsp/chart_column.jsp</result>  
+            <result name="input">/index.jsp</result>       
+            <result name="login">/index.jsp</result>             
+        </action>
+        
+        <action  name="koreaTotal" class="cn.missbe.action.Conversion">
+            <result name="success">/WEB-INF/jsp/enjoykorea-total.jsp</result>  
+            <result name="input">/index.jsp</result>       
+            <result name="login">/index.jsp</result>             
+        </action>
+        
+        <action  name="icnkrTotal" class="cn.missbe.action.Conversion">
+            <result name="success">/WEB-INF/jsp/icnkr-total.jsp</result>  
             <result name="input">/index.jsp</result>       
             <result name="login">/index.jsp</result>             
         </action>
