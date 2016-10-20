@@ -19,8 +19,9 @@ public class UserServiceImpl implements UserServiceI {
 	public User getUserBean(String name, String password) throws SQLException {
 		// TODO Auto-generated method stub
 //		System.out.println("getUserBean");
+		DBUtil dbUtil=new DBUtil();
+		Connection conn=dbUtil.getConnection();
 		
-		Connection conn=DBUtil.getConnection();
 		String sql="SELECT * FROM admin_inf admin WHERE admin.username=? and admin.userpass=?";
 		PreparedStatement statement=conn.prepareStatement(sql,
 				                   ResultSet.TYPE_SCROLL_SENSITIVE,
@@ -38,19 +39,22 @@ public class UserServiceImpl implements UserServiceI {
 			user.setUserpass(rs.getString("userpass"));		
 			
 			user.setUpdate_time(rs.getString("update_time"));
-//			System.out.println("TIME:"+rs.getString("update_time"));
-//			System.out.println(sdf.format(new Date()));///TEST
+
 			rs.updateString("update_time",sdf.format(new Date()));	
-			
 			rs.updateRow();
 			flag=true;
-		}		
+		}	
+		dbUtil.closeResources(conn, statement, rs);
 		return flag ? user : null;
 	}
 
 	public boolean modifyUserPass(String pass) throws SQLException {
-		// TODO Auto-generated method stub
-		Connection conn=DBUtil.getConnection();
+	    /**
+	     * 获取连接对象
+	     */
+		DBUtil dbUtil=new DBUtil();
+		Connection conn=dbUtil.getConnection();
+		
 //		String sql="UPDATE admin_inf SET userpass=? WHERE username=? and userpass=?";	
 		String sql="UPDATE admin_inf SET userpass=?";	
 //		User user=(User)ServletActionContext.getRequest().getSession().getAttribute("admin");
@@ -65,7 +69,7 @@ public class UserServiceImpl implements UserServiceI {
 			
 //			System.out.println("获取Session内容:"+user.getUsername()+":"+user.getUserpass());
 //		}
-		
+		dbUtil.closeResources(conn, statement, null);
      	return  number>0 ? true : false;	
 	
 	}
@@ -73,7 +77,12 @@ public class UserServiceImpl implements UserServiceI {
 	@Override
 	public List<HappyKorea> getUserList() throws SQLException {
 		// TODO Auto-generated method stub
-		Connection conn=DBUtil.getConnection();
+		 /**
+	     * 获取连接对象
+	     */
+		DBUtil dbUtil=new DBUtil();
+		Connection conn=dbUtil.getConnection();
+		
 		String sql="SELECT * FROM  happykorea_activepersonnelrank ORDER BY postnumber DESC";
 		PreparedStatement statement=conn.prepareStatement(sql,
 				                   ResultSet.TYPE_SCROLL_SENSITIVE,
@@ -94,6 +103,8 @@ public class UserServiceImpl implements UserServiceI {
 			   flag=true;
 			}
 		}
+		
+		dbUtil.closeResources(conn, statement, rs);//养老连接
 		return flag ? userList : null;
 	}
 

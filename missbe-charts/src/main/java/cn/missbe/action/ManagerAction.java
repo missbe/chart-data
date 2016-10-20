@@ -24,11 +24,13 @@ public class ManagerAction extends ActionSupport {
 	private static final String mailFIleName="mail.properties";
 	private String subject;
 	private String message;
+	
 	/**
 	 * 判断用户是否登录 
 	 * @return 登录为true 否则为false
 	 */
 	private boolean isLogin(){
+		setRequestAttribute("message","^_^会话过期,请重新登录^_^");
 		return null!=ServletActionContext.getRequest().getSession().getAttribute("admin") 
 				? true:false;
 	}
@@ -151,7 +153,8 @@ public class ManagerAction extends ActionSupport {
 		mail.setSubject(subject);
 		mail.setMessage(message);		
 		
-		boolean flag=new EmailUtil().send(mail);
+		boolean flag=new EmailUtil().send(mail);///邮件发送成功
+		
 		String message=flag?"^_^邮件发送成功，将会为您尽快处理^_^":"服务抽风了-请稍后再试!";
 		setRequestAttribute("message", message);
 		return SUCCESS;

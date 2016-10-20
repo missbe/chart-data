@@ -39,7 +39,7 @@
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form  action="${basePath }signin.action" autocomplete="on" method="post"> 
+                            <form  action="${basePath }signin.action"  method="post"> 
                                 <h1>Log in</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > 你的用户名 </label>
@@ -64,7 +64,6 @@
 								</p>                              
                             </form>
                         </div>                       
-						
                     </div>
                 </div>  
             </section>

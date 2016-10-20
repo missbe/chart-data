@@ -1,14 +1,15 @@
 package cn.missbe.action;
 
 import java.sql.SQLException;
+import java.util.Date;
 
+import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
-
 import com.opensymphony.xwork2.ActionSupport;
-
 import cn.missbe.model.User;
 import cn.missbe.service.UserServiceI;
 import cn.missbe.service.impl.UserServiceImpl;
+import cn.missbe.util.SimpleDateFormateUtil;
 
 public class UserAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
@@ -17,25 +18,34 @@ public class UserAction extends ActionSupport {
 	private String userpass;
 	private String loginkeeping;
 	private String repeatUserpass;
+	private static Logger logger = Logger.getLogger(UserAction.class); 
 	/**
 	 * 负责用户登录处理，成功进入首页
 	 */
 	@Override
 	public String execute(){
 		System.out.println(username+":"+userpass);
+		logger.error(username+":"+userpass+":"
+		         +SimpleDateFormateUtil.formateDateyyyy_MM_ddHHmmss(new Date()));
+		
 		UserServiceI service=new UserServiceImpl();
 		User admin=null;
 		try {
 			admin = service.getUserBean(username, userpass);
 		} catch (SQLException e) {			
 			e.printStackTrace();
+			logger.error("获取admin失败"+":"
+					+SimpleDateFormateUtil.formateDateyyyy_MM_ddHHmmss(new Date()));
 		}
-		if(null!=admin){
-//			ServletActionContext.getRequest().setAttribute("key", user.getUpdate_time());			
+		if(null != admin){		
+			logger.error("登录成功"+":"
+					+SimpleDateFormateUtil.formateDateyyyy_MM_ddHHmmss(new Date()));
 			ServletActionContext.getRequest().getSession().setAttribute("admin", admin);
 			ServletActionContext.getRequest().getSession().setMaxInactiveInterval(3600*3);
 			return SUCCESS;
 		}else{
+			logger.error("登录失败"+":"
+					+SimpleDateFormateUtil.formateDateyyyy_MM_ddHHmmss(new Date()));
 			System.out.println("未查询到该用户");
 			ServletActionContext.getRequest().setAttribute("message","用户名或者密码不正确^_^");
 			 return INPUT;

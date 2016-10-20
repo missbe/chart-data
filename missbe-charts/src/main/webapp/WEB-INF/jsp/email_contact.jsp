@@ -227,7 +227,7 @@
             <div class="box-body">
               <form action="${basePath }send.action" method="post" id="emailForm">
                 <div class="form-group">
-                  <input type="email"  class="form-control" name="emailto"  readonly="readonly" value="missbe-chart@foxmail.com">
+                  <input type="email"  class="form-control"   readonly="readonly" value="missbe-chart@foxmail.com">
                 </div>
                 <div class="form-group">
                   <input type="text" id="emailSubject"  class="form-control" name="subject" placeholder="Subject">
